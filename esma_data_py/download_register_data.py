@@ -96,10 +96,6 @@ def _warning_cached_data(file):
 @lru_cache(maxsize=None)
 
 def _create_folder(folder="data"):    
-    # main_folder = appdirs.user_cache_dir() + "/" + folder
-
-    # if not os.path.exists(main_folder):
-    #     os.mkdir(main_folder)
 
     main_folder = Path.home() / 'esma_data_py' / folder
     
