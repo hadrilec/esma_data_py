@@ -34,7 +34,6 @@ import tqdm
 import requests
 from tqdm import trange
 
-# os.chdir("M:/%5C/temp/hleclerc/register/")
 
 from set_global_args import set_global_args
 
@@ -45,7 +44,7 @@ def get_tag_clean(tag):
     return tag
 
 def extract_data(r, rtag=None, clean=True):    
-    #r = r100[i]
+    
     r2 = r
     if len(r) == 0:
         if clean is True:
