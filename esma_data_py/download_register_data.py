@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """
 Created on Wed Mar 22 20:37:00 2023
 
@@ -28,7 +28,6 @@ import multiprocessing
 from functools import lru_cache
 
 import xml.etree.ElementTree as ET
-import appdirs # got rid of via tempfile
 import pandas as pd
 import tqdm
 import requests
