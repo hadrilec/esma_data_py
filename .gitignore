@@ -1,0 +1,15 @@
+build
+dist
+*egg-info
+*/__pycache__/
+*.html
+*.pyc
+*.rtc
+*.doctree
+*.pickle
+*.stylelog
+*.pdf
+*.csv
+*.pkl
+*.xls
+*.xlsx
