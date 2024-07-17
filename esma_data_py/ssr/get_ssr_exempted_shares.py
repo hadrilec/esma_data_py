@@ -5,28 +5,12 @@ Created on Wed Mar 22 20:37:00 2023
 @author: hleclerc
 """
 
-from pathlib import Path
-import urllib.request as request
-import shutil
-import os
-from contextlib import closing
-import zipfile
-import re
-from collections import ChainMap
-import math
-import tempfile
-import hashlib
+
 import datetime
 import functools
-from functools import lru_cache
-import warnings
-import multiprocessing
-import xml.etree.ElementTree as ET
 import pandas as pd
 import tqdm
 import requests
-from tqdm import trange
-from esma_data_py.utils.utils import *
 
     
 @lru_cache(maxsize=None)
