@@ -13,7 +13,7 @@ import tqdm
 import requests
 
     
-@lru_cache(maxsize=None)
+@functools.lru_cache(maxsize=None)
 def get_ssr_exempted_shares(today=True):
 
     list_countries = ['AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK',
@@ -39,7 +39,7 @@ def get_ssr_exempted_shares(today=True):
     data = pd.concat(list_df).drop_duplicates()
     
     if today:
-        today_date = datetime.today().strftime('%Y-%m-%d')
+        today_date = datetime.date.today().strftime('%Y-%m-%d')
         data2 = data[(data['shs_modificationBDate'] > today_date) &                    
                     (data['shs_exemptionStartDate'] <= today_date)]
         

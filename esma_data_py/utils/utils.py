@@ -12,14 +12,13 @@ import functools
 import warnings
 import pandas as pd
 
-
 def _hash(string):
 
     h = hashlib.new("md5")
     h.update(string.encode("utf-8"))
     return h.hexdigest()
     
-@lru_cache(maxsize=None)
+@functools.lru_cache(maxsize=None)
 def _warning_cached_data(file):
     print(
         "Previously saved data used:\n{}\nSet update=True to get the most up-to-date data".format(
@@ -27,7 +26,7 @@ def _warning_cached_data(file):
         )
     )
 
-@lru_cache(maxsize=None)
+@functools.lru_cache(maxsize=None)
 def _create_folder(folder="data"):    
 
     main_folder = Path.home() / 'esma_data_py' / folder
@@ -45,7 +44,7 @@ def save_df(obj=pd.DataFrame, print_cached_data=True, folder='data'):
             data_folder = _create_folder(folder=folder)
             string_file_arg = [str(kwargs[a]) for a in kwargs.keys() if a != 'update'] + \
                                 [func.__name__] + [str(a) for a in args]            
-            file_name = data_folder + "/" + _hash(''.join(string_file_arg)) + ".csv"
+            file_name = str(data_folder) + "/" + _hash(''.join(string_file_arg)) + ".csv"
                                     
             if any([(a == 'update') & (kwargs[a] == True) for a in kwargs.keys()]):
                 update = True
