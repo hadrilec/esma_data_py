@@ -1,4 +1,4 @@
-name: pynsee package tests
+name: esma_data_py package tests
 
 on:
   pull_request_target:
