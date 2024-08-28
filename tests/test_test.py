@@ -11,8 +11,6 @@ import pandas as pd
 import sys
 import functools
 
-os.chdir(r"M:\%5C\temp\gdeglinnocenti\pkg\esma_data_py")
-
 from esma_data_py.ssr.get_ssr_exempted_shares import get_ssr_exempted_shares # Theoretically complete
 from esma_data_py.mifid.get_mifid_file_list import get_mifid_file_list # Theoretically complete
 from esma_data_py.mifid.download_file import download_file, download_one_file, _download_one_file # To check
