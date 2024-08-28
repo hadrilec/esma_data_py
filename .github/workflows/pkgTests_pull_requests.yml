@@ -35,8 +35,6 @@ jobs:
         flake8 . --count --ignore=E722,C901 --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test examples      
       run: |      
-        pip install -r requirements.txt
-        pip install -r requirements-extra.txt
         pip install .   
         
         # test all notebooks        
