@@ -33,7 +33,7 @@ setuptools.setup(
         ],
     license_files=("LICENSE.md",),
     install_requires=[
-        "pandas>=2.1.4",
+        "pandas>=2.0.0",
         "tqdm>=4.65.0",
         "requests>=2.31.0",
         ],
