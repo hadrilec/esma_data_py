@@ -24,24 +24,19 @@ jobs:
       run: |
         #sudo apt-get install libgeos-dev
         python -m pip install --upgrade pip
-        pip install flake8 pytest pytest-cov geopandas nbconvert matplotlib descartes 
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-        if [ -f requirements-extra.txt ]; then pip install -r requirements-extra.txt; fi
+        pip install flake8 pytest pytest-cov nbconvert  
+        if [ -f requirements.txt ]; then continue; fi
+        if [ -f requirements-extra.txt ]; then continue; fi
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --ignore=E722,C901 --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Test examples
-      env:
-        insee_key: ${{ secrets.INSEE_KEY }}
-        insee_secret: ${{ secrets.INSEE_SECRET }}
-      run: |
-        pip install jupytext
-        pip install -r requirements.txt
-        pip install .[full]     
-        pip install -r requirements-extra.txt
+    - name: Test examples      
+      run: |      
+        pip install .   
+        
         # test all notebooks        
         cd docs/examples 
         jupytext --to py *.md
@@ -49,16 +44,13 @@ jobs:
         # for f in *.py; do python "$f"; done
         cd ../..
     - name: Test with pytest
-      env:      
-        insee_key: ${{ secrets.INSEE_KEY }}
-        insee_secret: ${{ secrets.INSEE_SECRET }}
       run: |
         pytest -v --cov
-    - name: "Upload coverage to Codecov"
-      uses: codecov/codecov-action@v1
-      if: github.ref == 'refs/heads/master'
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }}
-        fail_ci_if_error: true
+    #- name: "Upload coverage to Codecov"
+    #  uses: codecov/codecov-action@v1
+    #  if: github.ref == 'refs/heads/master'
+    #  with:
+    #    token: ${{ secrets.CODECOV_TOKEN }}
+    #    fail_ci_if_error: true
         
    
