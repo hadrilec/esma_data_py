@@ -20,6 +20,7 @@ from esma_data_py.mifid.get_last_full_files import get_last_full_files
 class MyTests(unittest.TestCase):
 
     version = (sys.version_info[0] == 3) & (sys.version_info[1] == 10)
+    version = True
 
     if version == True:
     
