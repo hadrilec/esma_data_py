@@ -21,7 +21,7 @@ class MyTests(unittest.TestCase):
 
     version = (sys.version_info[0] == 3) & (sys.version_info[1] == 10)
 
-    if version:
+    if version == True:
     
         def test_get_last_full_files(self):
             test  = get_ssr_exempted_shares()
