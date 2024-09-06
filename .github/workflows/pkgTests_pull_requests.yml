@@ -25,7 +25,11 @@ jobs:
         #sudo apt-get install libgeos-dev
         python -m pip install --upgrade pip
         pip install flake8 pytest pytest-cov nbconvert  
+<<<<<<< HEAD
         if [ -f requirements.txt ]; then continue; fi
+=======
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+>>>>>>> 1a0c1c33bd9876a81d1edfaac1e78204a78539ea
         if [ -f requirements-extra.txt ]; then continue; fi
     - name: Lint with flake8
       run: |
@@ -36,6 +40,10 @@ jobs:
     - name: Test examples      
       run: |      
         pip install .   
+<<<<<<< HEAD
+=======
+        pip install -r requirements.txt
+>>>>>>> 1a0c1c33bd9876a81d1edfaac1e78204a78539ea
         
         # test all notebooks        
         cd docs/examples 
