@@ -20,12 +20,8 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
-<<<<<<< HEAD
-        if [ -f requirements.txt ]; then continue; fi
-=======
         pip install flake8 pytest pytest-cov 
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
->>>>>>> 1a0c1c33bd9876a81d1edfaac1e78204a78539ea
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
@@ -33,12 +29,8 @@ jobs:
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --ignore=E722,C901 --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test examples     
-<<<<<<< HEAD
-      run: |      
-=======
       run: |     
         pip install -r requirements.txt
->>>>>>> 1a0c1c33bd9876a81d1edfaac1e78204a78539ea
         pip install .  
         
         # test all notebooks        
