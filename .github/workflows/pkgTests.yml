@@ -42,7 +42,7 @@ jobs:
     - name: Test with pytest
       run: |
         pytest -v --cov
-        coverage report -m
+        coverage report --functions --classes
     # - name: "Upload coverage to Codecov"
     #   uses: codecov/codecov-action@v1
     #   if: github.ref == 'refs/heads/master'
