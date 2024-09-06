@@ -20,7 +20,7 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
-        pip install flake8 pytest pytest-cov 
+        pip install flake8 pytest pytest-cov coverage
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Lint with flake8
       run: |
@@ -41,7 +41,8 @@ jobs:
         # cd ../..
     - name: Test with pytest
       run: |
-        pytest -v --cov --cov-report=summary
+        pytest -v --cov
+        coverage report -m
     # - name: "Upload coverage to Codecov"
     #   uses: codecov/codecov-action@v1
     #   if: github.ref == 'refs/heads/master'
