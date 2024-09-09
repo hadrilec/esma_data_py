@@ -36,7 +36,8 @@ jobs:
     - name: Test with pytest
       run: |
         # pytest -v --cov
-        pytest --cov=esma_data_py --cov-report=xml --cov-report=term --cov-report=term-missing:skip-covered
+        # pytest --cov=esma_data_py --cov-report=xml --cov-report=term --cov-report=term-missing:skip-covered
+        pytest --cov=esma_data_py --cov-report=xml --cov-report=term
         
     - name: "Upload coverage to Codecov"
       uses: codecov/codecov-action@v4
