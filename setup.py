@@ -11,11 +11,11 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
     
 setuptools.setup(
-    name = "esma_data_py",
+    name = "data_py",
     version="0.0.1",
     author = "Hadrien Leclerc",
-    author_email="hadrien.leclerc@esma.europe.eu",
-    description = "Tools to easily download ESMA financial data",
+    author_email="leclerc.hadrien@gmail.com",
+    description = "Tools to easily download financial data",
     long_description=long_description,
     
     packages=setuptools.find_packages(),
