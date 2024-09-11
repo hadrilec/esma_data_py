@@ -14,8 +14,8 @@ setuptools.setup(
     name = "data_py",
     version="0.0.1",
     author = "Hadrien Leclerc",
-    author_email="leclerc.hadrien@gmail.com",
-    description = "Tools to easily download financial data",
+    author_email="hadrien.leclerc@esma.europa.eu",
+    description = "Tools to easily download ESMA financial data",
     long_description=long_description,
     
     packages=setuptools.find_packages(),
