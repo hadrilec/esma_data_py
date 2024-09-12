@@ -23,10 +23,13 @@ def get_fca_firds_file_list(db_list = ['firds'],
     Args:
       db_list (list or str): A list of database identifiers where 'firds' refers to the FIRDS database. Defaults to ['firds'].
           If a single database identifier is provided as a string, it is converted to a list.
+          
       creation_date_from (str): The start date for filtering files by their creation or publication date. 
           The date should be in the 'YYYY-MM-DD' format. Defaults to '2017-01-01'.
+          
       creation_date_to (str): The end date for filtering files. Defaults to the current date.
           If None, it uses today's date as the endpoint for the date filter.
+          
       limit (str): The maximum number of records to fetch. Defaults to '10000'.
 
     Returns:
