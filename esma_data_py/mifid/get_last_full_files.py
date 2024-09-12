@@ -22,7 +22,7 @@ def get_last_full_files(isin=None, cfi=None, eqt=True):
     Returns:
         pd.DataFrame: A DataFrame containing the concatenated data from all files that meet the specified criteria.
 
-    Example:
+    Examples:
         >>> # Example to get the latest full files for equity instruments with specific CFI codes:
         >>> files_df = get_last_full_files(cfi=['C', 'D'], eqt=True)
         >>> # Example to get the latest full files for non-equity instruments:
