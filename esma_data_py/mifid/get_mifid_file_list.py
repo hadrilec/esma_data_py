@@ -23,8 +23,11 @@ def get_mifid_file_list(db_list=['fitrs', 'firds', 'dvcap'],
 
     Args:
       db_list (list or str): List of database names to fetch files from. Valid databases are 'fitrs', 'firds', and 'dvcap'. Defaults to ['fitrs', 'firds', 'dvcap']. If a single string is provided, it is converted into a list.
+      
       creation_date_from (str): Start date for filtering files, in the format 'YYYY-MM-DD'. Defaults to '2017-01-01'.
+      
       creation_date_to (str, optional): End date for filtering files. Defaults to today's date.
+      
       limit (str): Maximum number of records to fetch from each database. Defaults to '100000'.
 
     Returns:
