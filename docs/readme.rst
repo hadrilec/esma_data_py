@@ -28,7 +28,7 @@ To get started with *esma_data_py*, you can install the package via pip:
 
 .. code-block:: python
 
-pip install esma_data_py
+   pip install esma_data_py
 
 Documentation
 -------
