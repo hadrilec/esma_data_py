@@ -15,20 +15,19 @@ def get_last_full_files(isin=None, cfi=None, eqt=True):
     Retrieves the latest full files from the 'fitrs' dataset, filtered by instrument type and optionally by CFI codes and ISINs.
 
     Args:
-    - isin (str or list of str, optional): ISIN(s) to filter the files. If provided, only files containing these ISINs are included.
-    - cfi (str or list of str, optional): CFI code(s) to further filter the files. Must be one of 'C', 'D', 'E', 'F', 'H', 'I', 'J', 'O', 'R', 'S'.
-    - eqt (bool): Determines if only equity instruments ('True') or non-equity instruments ('False') should be considered. Defaults to True.
+        isin (str or list of str, optional): ISIN(s) to filter the files. If provided, only files containing these ISINs are included.
+        cfi (str or list of str, optional): CFI code(s) to further filter the files. Must be one of 'C', 'D', 'E', 'F', 'H', 'I', 'J', 'O', 'R', 'S'.
+        eqt (bool): Determines if only equity instruments ('True') or non-equity instruments ('False') should be considered. Defaults to True.
 
     Returns:
-    - pd.DataFrame: A DataFrame containing the concatenated data from all files that meet the specified criteria.
+        pd.DataFrame: A DataFrame containing the concatenated data from all files that meet the specified criteria.
 
     Example:
-    --------
-    # Example to get the latest full files for equity instruments with specific CFI codes:
-    files_df = get_last_full_files(cfi=['C', 'D'], eqt=True)
+        >>> # Example to get the latest full files for equity instruments with specific CFI codes:
+        >>> files_df = get_last_full_files(cfi=['C', 'D'], eqt=True)
 
-    # Example to get the latest full files for non-equity instruments:
-    files_df = get_last_full_files(eqt=False)
+        >>> # Example to get the latest full files for non-equity instruments:
+        >>> files_df = get_last_full_files(eqt=False)
     """
     
     mifid_file_list = get_mifid_file_list('fitrs')
