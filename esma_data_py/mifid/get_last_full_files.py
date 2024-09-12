@@ -16,7 +16,9 @@ def get_last_full_files(isin=None, cfi=None, eqt=True):
 
     Args:
         isin (str or list of str, optional): ISIN(s) to filter the files. If provided, only files containing these ISINs are included.
+        
         cfi (str or list of str, optional): CFI code(s) to further filter the files. Must be one of 'C', 'D', 'E', 'F', 'H', 'I', 'J', 'O', 'R', 'S'.
+        
         eqt (bool): Determines if only equity instruments ('True') or non-equity instruments ('False') should be considered. Defaults to True.
 
     Returns:
