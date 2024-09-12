@@ -25,7 +25,7 @@ pip install esma_data_py
 Documentation
 -------
 
-Detailed documentation for all relevant functions and modules is available in the docs directory fo this repository, which incluides guides and examples to help you integrate esma_data_py into your projects effictively.
+Detailed documentation for all relevant functions and modules is available in the docs directory fo this repository, which includes guides and examples to help you integrate esma_data_py into your projects effictively.
 
 
 Support
