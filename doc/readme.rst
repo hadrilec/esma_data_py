@@ -18,9 +18,9 @@ Getting Started
 
 To get started with esma_data_py, you can install the package via pip:
 
-```sh
+`
 pip install esma_data_py
-```
+`
 
 Documentation
 -------
