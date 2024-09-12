@@ -18,7 +18,7 @@ def get_ssr_exempted_shares(today=True):
     """
     Retrieves SSR (Short Selling Regulation) exempted shares data from the European Securities and Markets Authority register for all European countries including Norway and Great Britain. Optionally filters the results to include only records relevant to the current date.
 
-    Parameters:
+    Args:
         today (bool): If True, the function filters the data to show only records where the modification date, start date of exemption, or both are relevant for today's date. Defaults to True.
 
     Returns:
