@@ -15,8 +15,7 @@ This package is a contribution to reproducible research and public data transpar
 
 Key features
 -------
-* **MIFID Data** : 
-   You can use, *get_mifid_file_list* to fetch a list of MIFID files from specified ESMA databases filtering by creation or publication date
+* **MIFID Data** : You can use, *get_mifid_file_list* to fetch a list of MIFID files from specified ESMA databases filtering by creation or publication date
 
 * **FIRDS Data** : You can retreive data both with the *get_last_full_files*, applying filters by instrument type and optionally by CFI codes and ISINs or with the *get_fca_firds_file_list* by retrieveing a list of FCA files
 
