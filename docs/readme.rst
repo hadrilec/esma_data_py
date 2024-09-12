@@ -4,7 +4,7 @@
 .. role:: raw-html(raw)
     :format: html
 
-esma_data_py python package contains tools to easily search and download data from the ESMA register
+esma_data_py
 ======================================================================================================
    
 :raw-html:`<br />`
