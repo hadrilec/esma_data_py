@@ -31,8 +31,8 @@ def get_mifid_file_list(db_list=['fitrs', 'firds', 'dvcap'],
       pd.DataFrame: A DataFrame aggregating the records from all specified databases, containing file details.
 
     Examples:
-    >>> # Fetch MIFID files from 'fitrs' and 'firds' databases from January 1, 2017 to the current date
-    >>> files_df = get_mifid_file_list(db_list=['fitrs', 'firds'], creation_date_from='2017-01-01')
+      >>> # Fetch MIFID files from 'fitrs' and 'firds' databases from January 1, 2017 to the current date
+      >>> files_df = get_mifid_file_list(db_list=['fitrs', 'firds'], creation_date_from='2017-01-01')
     """
     
     if type(db_list) == str:
