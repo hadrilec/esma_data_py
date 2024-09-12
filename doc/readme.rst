@@ -13,6 +13,12 @@ The esma_data_py package provides a robust toolkit designed to streamline the pr
 
 This package is a contribution to reproducible research and public data transparency. 
 
+Key features
+-------
+* **MIFID Data** : You can use, ''get_mifid_file_list'' to fetch a list of MIFID files from specified ESMA databases 
+
+* **FIRDS Data** :
+
 Getting Started
 -------
 
