@@ -31,7 +31,7 @@ Detailed documentation for all relevant functions and modules is available in th
 Support
 -------
 
-Feel free to open an issue with any question about this package using <https://github.com/hadrilec/esma_data_py/issues> Github repository.
+Feel free to open an issue with any question about this package using https://github.com/hadrilec/esma_data_py/issues Github repository.
 
 Contributing
 ------------
