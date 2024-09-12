@@ -25,7 +25,6 @@ def get_last_full_files(isin=None, cfi=None, eqt=True):
     Example:
         >>> # Example to get the latest full files for equity instruments with specific CFI codes:
         >>> files_df = get_last_full_files(cfi=['C', 'D'], eqt=True)
-
         >>> # Example to get the latest full files for non-equity instruments:
         >>> files_df = get_last_full_files(eqt=False)
     """
