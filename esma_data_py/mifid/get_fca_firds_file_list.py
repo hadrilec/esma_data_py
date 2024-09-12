@@ -21,21 +21,20 @@ def get_fca_firds_file_list(db_list = ['firds'],
     Retrieves a list of FCA FIRDS files from the specified API based on the given parameters.
 
     Args:
-    db_list (list or str): A list of database identifiers where 'firds' refers to the FIRDS database. Defaults to ['firds'].
-        If a single database identifier is provided as a string, it is converted to a list.
-    creation_date_from (str): The start date for filtering files by their creation or publication date. 
-        The date should be in the 'YYYY-MM-DD' format. Defaults to '2017-01-01'.
-    creation_date_to (str): The end date for filtering files. Defaults to the current date.
-        If None, it uses today's date as the endpoint for the date filter.
-    limit (str): The maximum number of records to fetch. Defaults to '10000'.
+      db_list (list or str): A list of database identifiers where 'firds' refers to the FIRDS database. Defaults to ['firds'].
+          If a single database identifier is provided as a string, it is converted to a list.
+      creation_date_from (str): The start date for filtering files by their creation or publication date. 
+          The date should be in the 'YYYY-MM-DD' format. Defaults to '2017-01-01'.
+      creation_date_to (str): The end date for filtering files. Defaults to the current date.
+          If None, it uses today's date as the endpoint for the date filter.
+      limit (str): The maximum number of records to fetch. Defaults to '10000'.
 
     Returns:
-    pd.DataFrame: A DataFrame containing the records of files fetched based on the specified filters.
+      pd.DataFrame: A DataFrame containing the records of files fetched based on the specified filters.
 
-    Example:
-    --------
-    # Get a list of FIRDS files from January 1, 2017, to today, limited to the first 10000 records
-    firds_files = get_fca_firds_file_list(db_list = 'dvcap')
+    Examples:
+      >>> # Get a list of FIRDS files from January 1, 2017, to today, limited to the first 10000 records
+    ` >>> firds_files = get_fca_firds_file_list(db_list = 'dvcap')
     """
     
     if type(db_list) == str:
