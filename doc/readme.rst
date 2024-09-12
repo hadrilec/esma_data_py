@@ -16,7 +16,7 @@ This package is a contribution to reproducible research and public data transpar
 Key features
 -------
 * **MIFID Data** : 
-   You can use, ''get_mifid_file_list'' to fetch a list of MIFID files from specified ESMA databases 
+   You can use, *get_mifid_file_list* to fetch a list of MIFID files from specified ESMA databases 
 
 * **FIRDS Data** :
 
