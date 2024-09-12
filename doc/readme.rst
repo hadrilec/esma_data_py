@@ -9,21 +9,23 @@ esma_data_py python package contains tools to easily search and download data fr
    
 :raw-html:`<br />`
    
-The esma_data_py package provides a robust toolkit designed to streamline the process of searching for and downloading data from the ESMA (European Securities and Markets Authority) register. This Python package facilitates easy access to regulatory data, aiming to support financial analysts, researchers, and developers who require reliable and up-to-date information from ESMA.
+The *esma_data_py* package provides a robust toolkit designed to streamline the process of searching for and downloading data from the ESMA (European Securities and Markets Authority) register. This Python package facilitates easy access to regulatory data, aiming to support financial analysts, researchers, and developers who require reliable and up-to-date information from ESMA.
 
 This package is a contribution to reproducible research and public data transparency. 
 
 Key features
 -------
 * **MIFID Data** : 
-   You can use, *get_mifid_file_list* to fetch a list of MIFID files from specified ESMA databases 
+   You can use, *get_mifid_file_list* to fetch a list of MIFID files from specified ESMA databases filtering by creation or publication date
 
-* **FIRDS Data** :
+* **FIRDS Data** : You can retreive data both with the *get_last_full_files*, applying filters by instrument type and optionally by CFI codes and ISINs or with the *get_fca_firds_file_list* by retrieveing a list of FCA files
+
+* **SSR Data** : You can retreive SSR data with the *get_ssr_exempted_shares*, optionally filtering the results to include only records relevant to the current date.
 
 Getting Started
 -------
 
-To get started with esma_data_py, you can install the package via pip:
+To get started with *esma_data_py*, you can install the package via pip:
 
 .. code-block:: python
 
