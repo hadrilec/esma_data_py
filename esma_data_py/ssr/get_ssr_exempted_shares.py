@@ -16,25 +16,19 @@ import requests
 @functools.lru_cache(maxsize=None)
 def get_ssr_exempted_shares(today=True):
     """
-    Retrieves SSR (Short Selling Regulation) exempted shares data from the European Securities and 
-    Markets Authority register for all European countries including Norway and Great Britain. Optionally filters 
-    the results to include only records relevant to the current date.
+    Retrieves SSR (Short Selling Regulation) exempted shares data from the European Securities and Markets Authority register for all European countries including Norway and Great Britain. Optionally filters the results to include only records relevant to the current date.
 
-    Parameters:
-    - today (bool): If True, the function filters the data to show only records where the modification date,
-                    start date of exemption, or both are relevant for today's date. Defaults to True.
+    Args:
+        today (bool): If True, the function filters the data to show only records where the modification date, start date of exemption, or both are relevant for today's date. Defaults to True.
 
     Returns:
-    - pd.DataFrame: A DataFrame containing the SSR exempted shares data, filtered based on the 'today' parameter.
-                    This data includes fields such as country code, ISIN, modification dates, and exemption start dates.
+        pd.DataFrame: A DataFrame containing the SSR exempted shares data, filtered based on the 'today' parameter. This data includes fields such as country code, ISIN, modification dates, and exemption start dates.
 
-    Example:
-    --------
-    # Retrieve all SSR exempted shares data without any date filtering
-    exempted_shares = get_ssr_exempted_shares(today=False)
-
-    # Retrieve SSR exempted shares data relevant for today's date
-    exempted_shares_today = get_ssr_exempted_shares()
+    Examples:
+        >>> # Retrieve all SSR exempted shares data without any date filtering
+        >>> exempted_shares = get_ssr_exempted_shares(today=False)
+        >>> # Retrieve SSR exempted shares data relevant for today's date
+        >>> exempted_shares_today = get_ssr_exempted_shares()
     """
 
     list_countries = ['AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK',

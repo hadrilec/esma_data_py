@@ -21,20 +21,21 @@ def get_mifid_file_list(db_list=['fitrs', 'firds', 'dvcap'],
     """
     Fetches a list of MIFID files from specified ESMA databases filtered by creation or publication dates.
 
-    Parameters:
-    - db_list (list or str): List of database names to fetch files from. Valid databases are 'fitrs', 'firds', and 'dvcap'.
-                             Defaults to ['fitrs', 'firds', 'dvcap']. If a single string is provided, it is converted into a list.
-    - creation_date_from (str): Start date for filtering files, in the format 'YYYY-MM-DD'. Defaults to '2017-01-01'.
-    - creation_date_to (str, optional): End date for filtering files. Defaults to today's date.
-    - limit (str): Maximum number of records to fetch from each database. Defaults to '100000'.
+    Args:
+      db_list (list or str): List of database names to fetch files from. Valid databases are 'fitrs', 'firds', and 'dvcap'. Defaults to ['fitrs', 'firds', 'dvcap']. If a single string is provided, it is converted into a list.
+      
+      creation_date_from (str): Start date for filtering files, in the format 'YYYY-MM-DD'. Defaults to '2017-01-01'.
+      
+      creation_date_to (str, optional): End date for filtering files. Defaults to today's date.
+      
+      limit (str): Maximum number of records to fetch from each database. Defaults to '100000'.
 
     Returns:
-    - pd.DataFrame: A DataFrame aggregating the records from all specified databases, containing file details.
+      pd.DataFrame: A DataFrame aggregating the records from all specified databases, containing file details.
 
-    Example:
-    --------
-    # Fetch MIFID files from 'fitrs' and 'firds' databases from January 1, 2017 to the current date
-    files_df = get_mifid_file_list(db_list=['fitrs', 'firds'], creation_date_from='2017-01-01')
+    Examples:
+      >>> # Fetch MIFID files from 'fitrs' and 'firds' databases from January 1, 2017 to the current date
+      >>> files_df = get_mifid_file_list(db_list=['fitrs', 'firds'], creation_date_from='2017-01-01')
     """
     
     if type(db_list) == str:
