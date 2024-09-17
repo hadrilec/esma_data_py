@@ -7,19 +7,15 @@
 esma_data_py
 ======================================================================================================
 
-.. image:: https://github.com/InseeFrLab/pynsee/actions/workflows/pkgTests.yml/badge.svg
-   :target: https://github.com/InseeFrLab/pynsee/actions
+.. image:: https://github.com/hadrilec/esma_data_py/blob/master/.github/workflows/pkgTests.yml/badge.svg
+   :target: https://github.com/hadrilec/esma_data_py/actions
    :alt: Build Status
 
-.. image:: https://github.com/InseeFrLab/pynsee/actions/workflows/examples.yml/badge.svg
-   :target: https://github.com/InseeFrLab/pynsee/actions
-   :alt: Examples Tests
-
-.. image:: https://codecov.io/gh/InseeFrLab/pynsee/branch/master/graph/badge.svg?token=TO96FMWRHK
-   :target: https://codecov.io/gh/InseeFrLab/pynsee?branch=master
+.. image:: https://app.codecov.io/gh/hadrilec/esma_data_py/branch/master/graph/badge.svg?token=TO96FMWRHK
+   :target: https://codecov.io/gh/hadrilec/esma_data_py?branch=master
    :alt: Codecov test coverage
 
-.. image:: https://readthedocs.org/projects/pynsee/badge/?version=latest
+.. image:: https://readthedocs.org/projects/esma-data-py/badge/?version=latest
    :target: https://pynsee.readthedocs.io/en/latest/?badge=latest
    :alt: Documentation Status
 
