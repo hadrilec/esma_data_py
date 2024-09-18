@@ -46,20 +46,14 @@ Key features
 * **SSR Data** : You can retreive SSR data with the *get_ssr_exempted_shares*, optionally filtering the results to include only records relevant to the current date.
 
 Getting Started
--------
+---------------
 
-To get started with *esma_data_py*, you can install the package via git:
+To get started with *esma_data_py*, you can install the package directly from GitHub:
 
-.. code-block:: python
+.. code-block:: bash
 
-   # Clone the repository
-   git clone https://github.com/hadrilec/esma_data_py.git
-
-   # Change directory to esma_data_py
-   cd esma_data_py
-
-   # Install the package with all optional dependencies
-   pip install .[full]
+   # Install the package directly from the GitHub repository
+   pip install git+https://github.com/hadrilec/esma_data_py.git#egg=esma_data_py
 
 
 Documentation
