@@ -118,21 +118,22 @@ def download_file(url_list, update=False, multiprocess=True, cpu=10):
     """
     Downloads data from a list of URLs and consolidates the results into a single DataFrame.
 
-    Parameters:
-    - url_list (list or str): A single URL or a list of URLs from which data is to be downloaded. If a single URL is provided,
-                              it is converted into a list.
+    Args:
+    - url_list (list or str): A single URL or a list of URLs from which data is to be downloaded. If a single URL is provided, it is converted into a list.
+    
     - update (bool): If True, allows for the updating of files during the download process. Defaults to False.
+    
     - multiprocess (bool): Controls whether to use multiprocessing to parallelize the download process.
+    
     - cpu (int): Specifies the maximum number of CPU cores to use for multiprocessing. Defaults to 10.
 
     Returns:
     - pd.DataFrame: A DataFrame containing all the data fetched from the provided URLs.
 
-    Example:
-    --------
-    # Example of downloading data from multiple URLs without multiprocessing:
-    url_list = ['http://example.com/file1.csv', 'http://example.com/file2.csv']
-    result_df = download_file(url_list, update=False)
+    Examples:
+       >>> # Example of downloading data from multiple URLs without multiprocessing:
+       >>> url_list = ['http://example.com/file1.csv', 'http://example.com/file2.csv']
+       >>> result_df = download_file(url_list, update=False)
     """
     
     multiprocess = False
