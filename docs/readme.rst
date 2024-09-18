@@ -7,7 +7,7 @@
 esma_data_py
 ======================================================================================================
 
-.. image:: https://github.com/hadrilec/esma_data_py/blob/master/.github/workflows/pkgTests.yml/badge.svg
+.. image:: https://github.com/hadrilec/esma_data_py/actions/workflows/pkgTests.yml/badge.svg
    :target: https://github.com/hadrilec/esma_data_py/actions
    :alt: Build Status
 
