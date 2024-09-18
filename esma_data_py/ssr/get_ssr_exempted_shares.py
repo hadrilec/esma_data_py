@@ -12,7 +12,7 @@ import pandas as pd
 import tqdm
 import requests
 
-    
+
 @functools.lru_cache(maxsize=None)
 def get_ssr_exempted_shares(today=True):
     """
@@ -31,38 +31,65 @@ def get_ssr_exempted_shares(today=True):
         >>> exempted_shares_today = get_ssr_exempted_shares()
     """
 
-    list_countries = ['AT', 'BE', 'BG', 'CY', 'CZ', 'DE', 'DK',
-                      'EE', 'ES', 'FI', 'FR', 'GR', 'HR', 'HU',
-                      'IE', 'IT', 'LT', 'LU', 'LV', 'MT', 'NL',
-                      'PL', 'PT', 'RO', 'SE', 'SI', 'SK'] + ['NO', 'GB']
-    
-    ssr_query = 'https://registers.esma.europa.eu/solr/esma_registers_mifid_shsexs/select?q=({!parent%20which=%27type_s:parent%27})&wt=json&indent=true&rows=150000'
+    list_countries = [
+        "AT",
+        "BE",
+        "BG",
+        "CY",
+        "CZ",
+        "DE",
+        "DK",
+        "EE",
+        "ES",
+        "FI",
+        "FR",
+        "GR",
+        "HR",
+        "HU",
+        "IE",
+        "IT",
+        "LT",
+        "LU",
+        "LV",
+        "MT",
+        "NL",
+        "PL",
+        "PT",
+        "RO",
+        "SE",
+        "SI",
+        "SK",
+    ] + ["NO", "GB"]
+
+    ssr_query = "https://registers.esma.europa.eu/solr/esma_registers_mifid_shsexs/select?q=({!parent%20which=%27type_s:parent%27})&wt=json&indent=true&rows=150000"
 
     list_df = []
 
     for c in tqdm.trange(len(list_countries)):
         country = list_countries[c]
-        q = ssr_query + f'&fq=(shs_countryCode:{country})'
+        q = ssr_query + f"&fq=(shs_countryCode:{country})"
         dfget = requests.get(q)
-        dictjson = dfget.json()['response']['docs']
+        dictjson = dfget.json()["response"]["docs"]
         df = pd.DataFrame(dictjson)
-        if (len(df.index) == 100000):
-            print('split query')
+        if len(df.index) == 100000:
+            print("split query")
             print(q)
         list_df += [df]
 
     data = pd.concat(list_df).drop_duplicates()
-    
+
     if today:
-        today_date = datetime.date.today().strftime('%Y-%m-%d')
-        data2 = data[(data['shs_modificationBDate'] > today_date) &                    
-                    (data['shs_exemptionStartDate'] <= today_date)]
-        
-        data3 = data2[data2.duplicated(['shs_isin'], keep=False)]
-        data3 = data3[(data3['shs_modificationDateStr'] <= today_date)]
-        
-        data4 = data2[~data2['shs_isin'].isin(data3['shs_isin'])]
-        
+        today_date = datetime.date.today().strftime("%Y-%m-%d")
+        data2 = data[
+            (data["shs_modificationBDate"] > today_date)
+            & (data["shs_exemptionStartDate"] <= today_date)
+        ]
+
+        data3 = data2[data2.duplicated(["shs_isin"], keep=False)]
+        data3 = data3[(data3["shs_modificationDateStr"] <= today_date)]
+
+        data4 = data2[~data2["shs_isin"].isin(data3["shs_isin"])]
+
         data = pd.concat([data3, data4]).reset_index(drop=True)
 
     return data
