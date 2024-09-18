@@ -22,6 +22,14 @@ esma_data_py
 .. image:: https://img.shields.io/badge/python-3.8%20%7C%203.9%20%7C%203.10%20%7C%203.11-blue.svg
    :target: https://www.python.org/
    :alt: Python versions
+
+.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
+   :target: https://pypi.org/project/black/
+   :alt: Code formatting
+
+.. image:: https://img.shields.io/badge/license-EUPL-blue
+   :target: https://img.shields.io/badge/license-EUPL-blue
+   :alt: License
    
 :raw-html:`<br />`
    
