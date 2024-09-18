@@ -19,7 +19,7 @@ setuptools.setup(
     long_description=long_description,
     
     packages=setuptools.find_packages(),
-    license="",
+    license="EUROPEAN UNION PUBLIC LICENCE v. 1.2",
     classifiers=[
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
