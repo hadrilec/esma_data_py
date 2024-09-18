@@ -2,6 +2,11 @@
 Get data
 ===========
 
+Download data
+-------------------------
+
+.. autofunction:: esma_data_py.mifid.download_file
+
 Get last available FITRS data
 -------------------------
 
