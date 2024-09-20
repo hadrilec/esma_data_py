@@ -1,14 +1,25 @@
+Search MIFID Data
+=================
 
-Search MIFID data
-===========
+These functions are used to search a list of documents belonging either to the ESMA register or the FCA (For the latter currently, the functionality is available only for the FIRDS dataset). The list of files that can be searched belongs to three datasets:
 
-Search ESMA data
--------------------------
+**FIRDS** (Financial Instruments Reference Data System): 
+This dataset encompasses comprehensive reference data for all financial instruments available on regulated markets across Europe. It includes essential details such as the ISIN (International Securities Identification Number), the instrument classification, issuer information, and trading market details. This dataset ensures that all market participants have uniform reference information, crucial for compliance with transparency and reporting requirements under MiFID II.
+
+**FITRS** (Financial Instruments Transparency System): 
+This dataset is vital for understanding market dynamics as it provides aggregated data on trading volumes and transactions for various financial instruments. It covers transparency information like daily and monthly trading volumes, average trade sizes, and transaction numbers. FITRS is designed to enhance market transparency and monitor trading activities, helping regulators and participants assess market liquidity and price formation.
+
+**DVCAP** (Double Volume Cap Mechanism): 
+This dataset is part of the regulatory measures to limit the impact of dark trading on price discovery and market integrity. It includes detailed records of trading volumes executed under waivers from pre-trade transparency requirements. DVCAP data shows the percentage of total trading volume executed in dark pools versus regulated markets, aiming to prevent excessive dark trading that could undermine fair market conditions. It specifically tracks the percentage of trading in a specific instrument that occurs in dark pools and compares it to a set cap, ensuring that dark trading does not exceed regulatory limits.
+
+
+Search ESMA Data
+----------------
 
 .. autofunction:: esma_data_py.mifid.get_mifid_file_list
 
-
-Search FCA data
-------------------------
+Search FCA Data
+---------------
 
 .. autofunction:: esma_data_py.mifid.get_fca_firds_file_list
+
