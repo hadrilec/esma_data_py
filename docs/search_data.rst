@@ -1,7 +1,7 @@
 Search MIFID Data
 =================
 
-These functions are used to search a list of documents belonging either to the ESMA register or the FCA (For the latter currently, the functionality is available only for the FIRDS dataset). The list of files that can be searched belongs to three datasets:
+These functions are used to search a list of documents belonging either to the ESMA register or the FCA (For the latter, the functionality is available only for the FIRDS dataset). The list of files that can be searched belongs to three datasets:
 
 **FIRDS** (Financial Instruments Reference Data System): 
 This dataset encompasses comprehensive reference data for all financial instruments available on regulated markets across Europe. It includes essential details such as the ISIN (International Securities Identification Number), the instrument classification, issuer information, and trading market details. This dataset ensures that all market participants have uniform reference information, crucial for compliance with transparency and reporting requirements under MiFID II.
