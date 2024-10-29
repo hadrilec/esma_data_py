@@ -74,12 +74,7 @@ def get_mifid_file_list(
         list_ddict = []
 
         for j in range(len(root[1])):
-            list_ddict.append(
-                {
-                    root[1][j][i].attrib["name"]: root[1][j][i].text
-                    for i in range(len(root[1][j]))
-                }
-            )
+            list_ddict += [{root[1][j][i].attrib['name'] : root[1][j][i].text for i in range(len(root[1][j]))}]
 
         data = pd.DataFrame.from_records(list_ddict)
         list_data.append(data)
