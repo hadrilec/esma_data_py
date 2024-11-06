@@ -2,4 +2,4 @@ Examples
 ========
 
 .. nbgallery::        
-   examples/esma_data_gdi.ipynb
+   examples/Flow_Chart_For_Equity_Transparency_Calculations.ipynb
