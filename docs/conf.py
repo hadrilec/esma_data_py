@@ -22,8 +22,7 @@ sys.path.insert(0, os.path.abspath('./'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'pynsee'
-copyright = '2021, INSEE'
+project = 'esma_data_py'
 author = 'Hadrien Leclerc'
 
 # The short X.Y version
