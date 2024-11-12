@@ -150,16 +150,16 @@ def download_file(url_list, update=False, multiprocess=True, cpu=10):
     i = 1
 
     #  if not multiprocess:
-        for url in url_list:
-            print(f"{i}/{len(url_list)} files")
+    for url in url_list:
+        print(f"{i}/{len(url_list)} files")
 
-            data = download_one_file(url, update=update)
+        data = download_one_file(url, update=update)
 
-            list_df += [data]
+        list_df += [data]
 
-            i += 1
+        i += 1
 
-        data_final = pd.concat(list_df)
+    data_final = pd.concat(list_df)
 
     # else:
     #     args = [url_list]
