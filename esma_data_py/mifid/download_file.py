@@ -114,7 +114,7 @@ def _download_one_file(u, update=False):
     df = download_one_file(url, silent=True)
     return df
 
-def download_file(url_list, update=False, multiprocess=True, cpu=10):
+def download_file(url_list, update=False):  #multiprocess=True, cpu=10
     """
     Downloads data from a list of URLs and consolidates the results into a single DataFrame.
 
@@ -122,10 +122,6 @@ def download_file(url_list, update=False, multiprocess=True, cpu=10):
        url_list (list or str): A single URL or a list of URLs from which data is to be downloaded. If a single URL is provided, it is converted into a list.
     
        update (bool): If True, allows for the updating of files during the download process. Defaults to False.
-    
-       multiprocess (bool): Controls whether to use multiprocessing to parallelize the download process.
-    
-       cpu (int): Specifies the maximum number of CPU cores to use for multiprocessing. Defaults to 10.
 
     Returns:
        pd.DataFrame: A DataFrame containing all the data fetched from the provided URLs.
@@ -136,7 +132,7 @@ def download_file(url_list, update=False, multiprocess=True, cpu=10):
        >>> result_df = download_file(url_list, update=False)
     """
     
-    multiprocess = False
+    # multiprocess = False
     
     if isinstance(url_list, str):
         url_list = [url_list]
@@ -145,40 +141,40 @@ def download_file(url_list, update=False, multiprocess=True, cpu=10):
     
     i = 1
     
-    if not multiprocess:
+    # if not multiprocess:
     
-        for url in url_list:
+    for url in url_list:
             
-            print(f"{i}/{len(url_list)} files")
+       print(f"{i}/{len(url_list)} files")
         
-            data = download_one_file(url, update=update)
+       data = download_one_file(url, update=update)
             
-            list_df += [data]
+       list_df += [data]
             
-            i += 1
+       i += 1
             
-        data_final = pd.concat(list_df)
+    data_final = pd.concat(list_df)
     
-    else:
+    # else:
     
-        args = [url_list]
+    #     args = [url_list]
     
-        length = len(url_list)
-        irange = range(length)
+    #     length = len(url_list)
+    #     irange = range(length)
         
-        Nprocesses = min(cpu, multiprocessing.cpu_count())    
+    #     Nprocesses = min(cpu, multiprocessing.cpu_count())    
     
-        with multiprocessing.Pool(
-                initializer = set_global_args, initargs=(args,), processes=Nprocesses
-            ) as pool:
-                list_output = list(
-                        tqdm.tqdm(
-                            pool.imap(_download_one_file, irange),
-                            total=length,
-                            desc="Download",
-                        )
-                    )
+    #     with multiprocessing.Pool(
+    #             initializer = set_global_args, initargs=(args,), processes=Nprocesses
+    #         ) as pool:
+    #             list_output = list(
+    #                     tqdm.tqdm(
+    #                         pool.imap(_download_one_file, irange),
+    #                         total=length,
+    #                         desc="Download",
+    #                     )
+    #                 )
                 
-        data_final = pd.concat(list_output)       
+    #     data_final = pd.concat(list_output)       
     
     return data_final
