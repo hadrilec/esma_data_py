@@ -140,7 +140,7 @@ def download_file(url_list, update=False, multiprocess=True, cpu=10):
     result_df = download_file(url_list, update=False)
     """
 
-    multiprocess = False
+    # multiprocess = False
 
     if isinstance(url_list, str):
         url_list = [url_list]
@@ -149,7 +149,7 @@ def download_file(url_list, update=False, multiprocess=True, cpu=10):
 
     i = 1
 
-    if not multiprocess:
+    #  if not multiprocess:
         for url in url_list:
             print(f"{i}/{len(url_list)} files")
 
@@ -161,25 +161,25 @@ def download_file(url_list, update=False, multiprocess=True, cpu=10):
 
         data_final = pd.concat(list_df)
 
-    else:
-        args = [url_list]
+    # else:
+    #     args = [url_list]
 
-        length = len(url_list)
-        irange = range(length)
+    #     length = len(url_list)
+    #     irange = range(length)
 
-        Nprocesses = min(cpu, multiprocessing.cpu_count())
+    #     Nprocesses = min(cpu, multiprocessing.cpu_count())
 
-        with multiprocessing.Pool(
-            initializer=set_global_args, initargs=(args,), processes=Nprocesses
-        ) as pool:
-            list_output = list(
-                tqdm.tqdm(
-                    pool.imap(_download_one_file, irange),
-                    total=length,
-                    desc="Download",
-                )
-            )
+    #     with multiprocessing.Pool(
+    #         initializer=set_global_args, initargs=(args,), processes=Nprocesses
+    #     ) as pool:
+    #         list_output = list(
+    #             tqdm.tqdm(
+    #                 pool.imap(_download_one_file, irange),
+    #                 total=length,
+    #                 desc="Download",
+    #             )
+    #         )
 
-        data_final = pd.concat(list_output)
+    #     data_final = pd.concat(list_output)
 
     return data_final
