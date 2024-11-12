@@ -34,7 +34,7 @@ def get_fca_firds_file_list(db_list = ['firds'],
 
     Examples:
       >>> # Get a list of FIRDS files from January 1, 2017, to today, limited to the first 10000 records
-      >>> firds_files = get_fca_firds_file_list(db_list = 'dvcap')
+      >>> firds_files = get_fca_firds_file_list(creation_date_from='2021-01-01')
     """
     
     if type(db_list) == str:
