@@ -9,7 +9,7 @@ import os
 from bs4 import BeautifulSoup
 import zipfile
 from tqdm import tqdm
-import src.utils as u
+import esma_data_py.src.utils as u
 
 
 class EsmaDataLoader:
