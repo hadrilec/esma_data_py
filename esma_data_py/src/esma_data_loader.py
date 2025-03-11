@@ -9,7 +9,7 @@ import os
 from bs4 import BeautifulSoup
 import zipfile
 from tqdm import tqdm
-from esma_data_py.utils.utils import Utils, Dataset, Cfi, QueryUrl
+import src.utils as u
 
 
 class EsmaDataLoader:
@@ -26,15 +26,15 @@ class EsmaDataLoader:
         if not self.creation_date_to:
             self.creation_date_to = str(datetime.today().strftime("%Y-%m-%d"))
 
-        self.query_url = QueryUrl()
-        self.__utils = Utils()
+        self.query_url = u.QueryUrl()
+        self.__utils = u.Utils()
         self.__logger = self.__utils.set_logger(name='EsmaDataLoader')
 
 
     def load_mifid_file_list(self, datasets: List[str] = ['dvcap', 'fitrs', 'firds']):
 
         try:
-            datasets = [Dataset(dataset).value for dataset in datasets]
+            datasets = [u.Dataset(dataset).value for dataset in datasets]
         except ValueError as ve:
             self.__logger.error(f'Error: {ve}') 
 
@@ -82,7 +82,7 @@ class EsmaDataLoader:
                           update: bool = False):
 
         try:
-            cfi = Cfi(cfi).value
+            cfi = u.Cfi(cfi).value
         except Exception as e:
             self.__logger.error(f'Error: {e}')
             return
@@ -166,7 +166,7 @@ class EsmaDataLoader:
 
     def __get_files_single_df_mifid(self, dataset: str):
 
-        if dataset == Dataset.FIRDS.value:
+        if dataset == u.Dataset.FIRDS.value:
 
             query_mifid = self.query_url.mifid.format(db=dataset, 
                                                   date_column='publication_date', 
@@ -197,7 +197,7 @@ class EsmaDataLoader:
         
         pattern_extract_vcap =  pattern = r'(?P<filetype>[A-Za-z]+)_(?P<date>\d{8})'
         
-        mifid_file_list = self.__get_files_single_df_mifid(Dataset.DVCAP.value)
+        mifid_file_list = self.__get_files_single_df_mifid(u.Dataset.DVCAP.value)
         file_name_explosion = mifid_file_list.file_name.str.extract(pattern_extract_vcap)
         mifid_file_list = pd.concat([mifid_file_list, file_name_explosion], axis=1)
         max_date = max(mifid_file_list.date)
@@ -208,7 +208,7 @@ class EsmaDataLoader:
         
         pattern_extract_ft =  r'(?P<filetype>[A-Za-z]+)_(?P<date>\d{8})(?:_(?P<cfi>[A-Za-z]+))?_(?P<nfile>\d+of\d+)\.zip'
         
-        mifid_file_list = self.__get_files_single_df_mifid(Dataset.FITRS.value)
+        mifid_file_list = self.__get_files_single_df_mifid(u.Dataset.FITRS.value)
         mifid_file_list = mifid_file_list.loc[lambda x: x.file_type == file_type]
         file_name_explosion = mifid_file_list.file_name.str.extract(pattern_extract_ft)
         mifid_file_list = pd.concat([mifid_file_list, file_name_explosion], axis=1)
