@@ -1,5 +1,6 @@
-# -*- coding: utf-8 -*-
+from esma_data_py.src.esma_data_loader import EsmaDataLoader
 
-from .mifid import *
-from .ssr import *
-from .utils import *
+__all__ = ['EsmaDataLoader']
+
+if __name__ == '__main__':
+    print(EsmaDataLoader())
