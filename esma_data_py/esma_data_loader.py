@@ -26,7 +26,9 @@ class EsmaDataLoader:
 
         Args:
             creation_date_from (str): The start date for filtering data by creation or publication date. Should be in 'YYYY-MM-DD' format. Defaults to '2017-01-01'.
+           
             creation_date_to (str, optional): The end date for filtering data. Should be in 'YYYY-MM-DD' format. If None, defaults to today's date.
+           
             limit (str): The maximum number of records to fetch per request. Defaults to '10000'.
 
         Attributes:
@@ -34,8 +36,6 @@ class EsmaDataLoader:
             creation_date_to (str): The end date for filtering files.
             limit (str): The maximum number of records to fetch.
             query_url (u.QueryUrl): The object that constructs URLs for API queries.
-            __utils (u.Utils): A utility object for additional helper functions.
-            __logger (logging.Logger): Logger for logging information, warnings, and errors.
         
         Examples:
             >>> loader = EsmaDataLoader(creation_date_from='2020-01-01', creation_date_to='2020-12-31', limit='5000')
@@ -62,18 +62,12 @@ class EsmaDataLoader:
         Args:
         db_list (list or str): List of database names to fetch files from. Valid databases are 'fitrs', 'firds', and 'dvcap'. Defaults to ['fitrs', 'firds', 'dvcap']. If a single string is provided, it is converted into a list.
 
-        creation_date_from (str): Start date for filtering files, in the format 'YYYY-MM-DD'. Defaults to '2017-01-01'.
-
-        creation_date_to (str, optional): End date for filtering files. Defaults to today's date.
-
-        limit (str): Maximum number of records to fetch from each database. Defaults to '100000'.
-
         Returns:
         pd.DataFrame: A DataFrame aggregating the records from all specified databases, containing file details.
 
         Examples:
         >>> # Fetch MIFID files from 'fitrs' and 'firds' databases from January 1, 2017 to the current date
-        >>> files_df = EsmaDataLoader()
+        >>> files_df = EsmaDataLoader().load_mifid_file_list()
         """
 
         try:
@@ -98,21 +92,11 @@ class EsmaDataLoader:
         """
         Retrieves a list of FCA FIRDS files from the specified API based on the given parameters.
 
-        Args:
-        db_list (list or str): A list of database identifiers where 'firds' refers to the FIRDS database. Defaults to ['firds']. If a single database identifier is provided as a string, it is converted to a list.
-
-        creation_date_from (str): The start date for filtering files by their creation or publication date. The date should be in the 'YYYY-MM-DD' format. Defaults to '2017-01-01'.
-
-        creation_date_to (str): The end date for filtering files. Defaults to the current date. If None, it uses today's date as the endpoint for the date filter.
-
-        limit (str): The maximum number of records to fetch. Defaults to '10000'.
-
         Returns:
         pd.DataFrame: A DataFrame containing the records of files fetched based on the specified filters.
 
         Examples:
-        >>> # Get a list of FIRDS files from January 1, 2017, to today, limited to the first 10000 records
-        >>> firds_files = get_fca_firds_file_list(db_list = 'dvcap')
+        >>> firds_files = EsmaDataLoader().load_fca_firds_file_list()
         """
 
         query_fca_firds = self.query_url.fca_firds.format(creation_date_from=self.creation_date_from, 
@@ -159,9 +143,7 @@ class EsmaDataLoader:
 
         Examples:
             >>> # Example to get the latest full files for equity instruments with specific CFI codes:
-            >>> files_df = get_last_full_files(cfi=['C', 'D'], eqt=True)
-            >>> # Example to get the latest full files for non-equity instruments:
-            >>> files_df = get_last_full_files(eqt=False)
+            >>> files_df = EsmaDataLoader().load_latest_files()
         """
 
         try:
@@ -214,9 +196,9 @@ class EsmaDataLoader:
 
         Examples:
             >>> # Retrieve all SSR exempted shares data without any date filtering
-            >>> exempted_shares = get_ssr_exempted_shares(today=False)
+            >>> exempted_shares = EsmaDataLoader().load_ssr_exempted_shares(today=False)
             >>> # Retrieve SSR exempted shares data relevant for today's date
-            >>> exempted_shares_today = get_ssr_exempted_shares()
+            >>> exempted_shares_today = EsmaDataLoader().load_ssr_exempted_shares()
         """
 
         list_countries = [ "AT", "BE", "BG", "CY", "CZ", "DE", "DK", "EE", "ES", "FI", 
@@ -273,9 +255,6 @@ class EsmaDataLoader:
 
         Returns:
             pd.DataFrame: A DataFrame containing the file data for the given dataset.
-
-        Examples:
-            >>> files_df = __get_files_single_df_mifid('fitrs')
         """
 
         if dataset == u.Dataset.FIRDS.value:
@@ -312,12 +291,9 @@ class EsmaDataLoader:
 
         Returns:
             pd.DataFrame: A DataFrame containing the latest VCAP files.
-
-        Examples:
-            >>> latest_vcap_files = __get_latest_vcap_files()
         """
         
-        pattern_extract_vcap =  pattern = r'(?P<filetype>[A-Za-z]+)_(?P<date>\d{8})'
+        pattern_extract_vcap = r'(?P<filetype>[A-Za-z]+)_(?P<date>\d{8})'
         
         mifid_file_list = self.__get_files_single_df_mifid(u.Dataset.DVCAP.value)
         file_name_explosion = mifid_file_list.file_name.str.extract(pattern_extract_vcap)
@@ -332,15 +308,12 @@ class EsmaDataLoader:
         Retrieves the latest FITRS files filtered by file type, CFI code, and instrument type (equity or non-equity).
 
         Args:
-            file_type (str): The type of the file (e.g., 'Full', 'Partial').
+            file_type (str): The type of the file (e.g., 'Full').
             cfi (str): The CFI code to filter the files.
             eqt (bool): Determines if the files should be for equity instruments (True) or non-equity instruments (False).
 
         Returns:
             pd.DataFrame: A DataFrame containing the latest FITRS files filtered by the specified criteria.
-
-        Examples:
-            >>> latest_fitrs_files = __get_latest_fitrs_files('Full', 'E', True)
         """
         
         pattern_extract_ft =  r'(?P<filetype>[A-Za-z]+)_(?P<date>\d{8})(?:_(?P<cfi>[A-Za-z]+))?_(?P<nfile>\d+of\d+)\.zip'
