@@ -24,16 +24,17 @@ Key features
 Getting Started
 -------
 
-To get started with *esma_data_py*, you can install the package via pip:
+To get started with *esma_data_py*, you can install the package via pip using the following GitHub link:
 
 .. code-block:: python
 
-   pip install esma_data_py
+   pip install git+https://github.com/hadrilec/esma_data_py.git#egg=esma_data_py
 
 Documentation
 -------
 
 Detailed documentation for all relevant functions and modules is available in the docs directory fo this repository, which includes guides and examples to help you integrate esma_data_py into your projects effictively.
+Doc: http://esma-data-py.readthedocs.io/
 
 
 Support
