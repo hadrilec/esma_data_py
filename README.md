@@ -3,8 +3,7 @@
 ![Build Status](https://github.com/hadrilec/esma_data_py/actions/workflows/pkgTests.yml/badge.svg)
 [Build Status Link](https://github.com/hadrilec/esma_data_py/actions)
 
-![Codecov test coverage](https://app.codecov.io/gh/hadrilec/esma_data_py/branch/master/graph/badge.svg?token=TO96FMWRHK)
-[Codecov Coverage Link](https://codecov.io/gh/hadrilec/esma_data_py?branch=master)
+![Codecov test coverage](https://img.shields.io/badge/coverage-82%25-brightgreen)
 
 ![Documentation Status](https://readthedocs.org/projects/esma-data-py/badge/?version=latest)
 [Documentation Link](https://pynsee.readthedocs.io/en/latest/?badge=latest)
